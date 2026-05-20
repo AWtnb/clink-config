@@ -5,8 +5,9 @@ Invoke-Command -ScriptBlock {
 }
 
 Invoke-Command -ScriptBlock {
-    $item = $PWD.path | Join-Path -ChildPath "clink_settings" | Get-Item
     $dest = $env:LOCALAPPDATA | Join-Path -ChildPath "clink"
-    $item | Copy-Item -Destination $dest -Force -PassThru
+    Get-ChildItem -file | Where-Object {$_.Name -eq "clink_settings" -or $_.Extension -eq ".lua"} | ForEach-Object {
+        $_ | Copy-Item -Destination $dest -Force -PassThru
+    }
 }
 
