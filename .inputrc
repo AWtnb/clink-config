@@ -1,3 +1,0 @@
-# Ctrl-Nで単語単位でサジェストを確定
-"\C-n": "luafunc:Forward_bigword_with_space"
-
