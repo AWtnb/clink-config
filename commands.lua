@@ -10,3 +10,15 @@ function Forward_bigword_with_space(rl_buffer)
 end
 
 rl.setbinding([["\x0e"]], [["luafunc:Forward_bigword_with_space"]])
+
+
+function Insert_desktop_path(rl_buffer)
+    local userprofile = os.getenv("USERPROFILE")
+    if not userprofile then return end
+
+    local desktop = userprofile .. "\\Desktop\\"
+    rl_buffer:insert(desktop)
+end
+
+rl.setbinding([["\x0e"]], [["luafunc:Forward_bigword_with_space"]])
+rl.setbinding([["\ei"]], [["luafunc:Insert_desktop_path"]])
