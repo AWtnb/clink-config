@@ -20,5 +20,12 @@ function Insert_desktop_path(rl_buffer)
     rl_buffer:insert(desktop)
 end
 
-rl.setbinding([["\x0e"]], [["luafunc:Forward_bigword_with_space"]])
 rl.setbinding([["\ei"]], [["luafunc:Insert_desktop_path"]])
+
+
+function Reload_clink_config(rl_buffer)
+    os.execute("clink inject")
+    rl_buffer:refreshline()
+end
+
+rl.setbinding([["\er"]], [["luafunc:Reload_clink_config"]])

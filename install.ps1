@@ -4,4 +4,3 @@ Invoke-Command -ScriptBlock {
         $_ | Copy-Item -Destination $dest -Force -PassThru
     }
 }
-
