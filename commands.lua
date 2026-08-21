@@ -1,3 +1,6 @@
+rl.setbinding([["\x0e"]], "clink-forward-bigword")
+
+
 function Insert_desktop_path(rl_buffer)
     local userprofile = os.getenv("USERPROFILE")
     if not userprofile then return end
