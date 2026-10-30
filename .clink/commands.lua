@@ -6,6 +6,12 @@ end
 
 rl.setbinding([["\en"]], [["luafunc:Insert_nu_command"]])
 
+function Insert_xefm_command(rl_buffer)
+    rl_buffer:insert("xefm --left . --right .")
+end
+
+rl.setbinding([["\ef"]], [["luafunc:Insert_xefm_command"]])
+
 function Insert_desktop_path(rl_buffer)
     local userprofile = os.getenv("USERPROFILE")
     if not userprofile then return end
@@ -15,11 +21,3 @@ function Insert_desktop_path(rl_buffer)
 end
 
 rl.setbinding([["\ei"]], [["luafunc:Insert_desktop_path"]])
-
-
-function Reload_clink_config(rl_buffer)
-    os.execute("clink inject")
-    rl_buffer:refreshline()
-end
-
-rl.setbinding([["\er"]], [["luafunc:Reload_clink_config"]])
