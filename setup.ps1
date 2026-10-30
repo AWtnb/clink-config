@@ -1,16 +1,12 @@
 Invoke-Command -ScriptBlock {
-    clink set autosuggest.inline true
+    $profileDir = Join-Path $env:USERPROFILE ".clink"
 
-    $src = ".clink"
-    $dest = $env:USERPROFILE | Join-Path -ChildPath $src
-    if (Test-Path $dest) {
-        Remove-Item -Path $dest -Recurse -ErrorAction SilentlyContinue
-    }
-    New-Item -Path $dest -Value ($PSScriptRoot | Join-Path -ChildPath $src) -ItemType Junction
-    clink installscripts $dest
     [Environment]::SetEnvironmentVariable(
         "CLINK_SETTINGS",
-        (Join-path $dest -ChildPath "clink_settings"),
+        $profileDir,
         "User"
     )
+
+    clink set autosuggest.enable true
+    clink set autosuggest.inline true
 }
