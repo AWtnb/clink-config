@@ -5,5 +5,5 @@ Personal configuration for [chrisant996/clink](https://github.com/chrisant996/cl
 ## Installation
 
 ```bash
-powershell .\install.ps1
+powershell .\setup.ps1
 ```

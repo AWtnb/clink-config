@@ -1,0 +1,13 @@
+# name: Show a suggestion in a muted color
+# type: boolean
+autosuggest.inline = True
+
+# name: Controls what startup logo to show
+# type: enum
+# options: none,full,short
+clink.logo = short
+
+# name: Share history between instances
+# type: boolean
+history.shared = True
+
