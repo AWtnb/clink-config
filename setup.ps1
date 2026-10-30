@@ -1,5 +1,11 @@
 Invoke-Command -ScriptBlock {
-    $profileDir = Join-Path $env:USERPROFILE ".clink"
+    $src = ".clink"
+    $profileDir = $env:USERPROFILE | Join-Path -ChildPath $src
+    if (Test-Path $profileDir) {
+        Remove-Item -Path $profileDir -Recurse -ErrorAction SilentlyContinue
+    }
+    New-Item -Path $profileDir -Value ($PSScriptRoot | Join-Path -ChildPath $src) -ItemType Junction
+    
 
     [Environment]::SetEnvironmentVariable(
         "CLINK_SETTINGS",
