@@ -15,4 +15,5 @@ Invoke-Command -ScriptBlock {
 
     clink set autosuggest.enable true
     clink set autosuggest.inline true
+    clink installscripts $profileDir
 }
