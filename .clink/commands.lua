@@ -2,12 +2,14 @@ rl.setbinding([["\x0e"]], "clink-forward-bigword")
 
 function Insert_nu_command(rl_buffer)
     rl_buffer:insert("nu --experimental-options=native-clip")
+    rl.invokecommand("accept-line")
 end
 
 rl.setbinding([["\en"]], [["luafunc:Insert_nu_command"]])
 
 function Insert_xefm_command(rl_buffer)
     rl_buffer:insert("xefm --left . --right .")
+    rl.invokecommand("accept-line")
 end
 
 rl.setbinding([["\ef"]], [["luafunc:Insert_xefm_command"]])
